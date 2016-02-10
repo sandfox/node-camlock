@@ -10,12 +10,20 @@ as network/disk i/o. If code incorrectly tries to get/release a lock this module
 will throw, so this is probably useful when you just want to guard against
 incorrect behaviour in fairly bang sort of way.
 
+## Installation
+
+This is a scoped packaged so you need to be using a recent-ish version of `npm` (probably v2 at minimum)
+
+```
+npm install [--save] @sandfox/camlock
+```
+
 ## Usage
 
 A simple example:
 
 ```
-const Camlock = require('Camlock')
+const Camlock = require('@sandfox/camlock')
 
 const myLockManager = new Camlock()
 
@@ -28,7 +36,7 @@ myLockManager.release('update-xy', myLockToken)
 __Acquire a lock__
 
 ```
-const Camlock = require('Camlock')
+const Camlock = require('@sandfox/camlock')
 const myLockManager = new Camlock()
 const myLockToken = myLockManager.get('some-key')
 ```
@@ -39,7 +47,7 @@ so keep that in mind wit regards to equality comparision. The function returns a
 __Release a lock__
 
 ```
-const Camlock = require('Camlock')
+const Camlock = require('@sandfox/camlock')
 const myLockManager = new Camlock()
 const myLockToken = myLockManager.get('db-write')
 myLockManager.release('db-write', myLockToken)

@@ -1,6 +1,6 @@
 {
   "name": "@sandfox/camlock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a basic in-process lock",
   "main": "lib/Camlock.js",
   "scripts": {
