@@ -65,3 +65,11 @@ tap.test('releasing a lock with the wrong token throws', function (t) {
   }, Error('wrong token supplied for lock release'))
   t.end()
 })
+
+tap.test('can check for the existence of locks', function (t) {
+  const myLock = new Camlock()
+  t.false(myLock.has('something'))
+  myLock.get('something')
+  t.true(myLock.has('something'))
+  t.end()
+})
