@@ -82,7 +82,7 @@ tap.test('can validate valid locks', function (t) {
   const sarshsLockToken = myLock.get('sarah')
   t.false(myLock.validate('tim', sarshsLockToken))
   t.true(myLock.validate('tim', timslockToken))
-  myLock.release('tim',timslockToken)
+  myLock.release('tim', timslockToken)
   t.false(myLock.validate('tim', timslockToken))
   t.end()
 })
