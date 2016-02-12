@@ -73,3 +73,16 @@ tap.test('can check for the existence of locks', function (t) {
   t.true(myLock.has('something'))
   t.end()
 })
+/**
+ * WRITE A TEST FOR VALIDATE
+ */
+tap.test('can validate valid locks', function (t) {
+  const myLock = new Camlock()
+  const timslockToken = myLock.get('tim')
+  const sarshsLockToken = myLock.get('sarah')
+  t.false(myLock.validate('tim', sarshsLockToken))
+  t.true(myLock.validate('tim', timslockToken))
+  myLock.release('tim',timslockToken)
+  t.false(myLock.validate('tim', timslockToken))
+  t.end()
+})
